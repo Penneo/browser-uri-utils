@@ -44,6 +44,11 @@ function penneoLink(data, target) {
 
 
 // Example:
+//
+// HTML
+// <a id="pl" href="#">Link to Penneo</a>
+// 
+// Javascript
 // get a `li` element from DOM
 // link = document.getElementById('pl');
 // 
