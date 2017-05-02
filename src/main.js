@@ -19,8 +19,8 @@ let _penneo = {
  * @return {string}      href uri
  */
 function createHref(data) {
-    var prefix = 'penneo:browser,';
-    var str = _penneo.stringify(data);
+    const prefix = 'penneo:browser,';
+    let str = _penneo.stringify(data);
 
     if (!str) {
         return false;
@@ -42,8 +42,13 @@ function penneoLink(data, target) {
     target.href = createHref(data);
 }
 
-var link = document.getElementById('pl');
 
 // Example:
-// var data = {name: 'test'};
+// get a `li` element from DOM
+// link = document.getElementById('pl');
+// 
+// Create the payload to send
+// let data = {name: 'test'};
+// 
+// Enhance the link with penneoLink function
 // penneoLink(data, link);
