@@ -1,20 +1,4 @@
 let _penneo = {
-    terminalEncode: (str) => {
-      return str.replace(/"/g, `\\"`);  
-    },
-
-    htmlEncode: (str) => {
-        return str
-            .replace(/\\/g, '&#92;')
-            // .replace(/{/g, '&#123;')
-            // .replace(/}/g, '&#125;')
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-    },
-
     stringify: (data) => {
         try {
             return JSON.stringify(data);
@@ -22,6 +6,10 @@ let _penneo = {
             console.log(e);
             return false;
         }
+    },
+  
+    browserEncode: (str) => {
+       return encodeURIComponent(str);
     }
 }
 
@@ -31,14 +19,14 @@ let _penneo = {
  * @return {string}      href uri
  */
 function createHref(data) {
-    const prefix = 'penneo:';
-    let str = _penneo.stringify(data);
+    var prefix = 'penneo:browser,';
+    var str = _penneo.stringify(data);
 
     if (!str) {
         return false;
     }
-
-    return prefix + _penneo.htmlEncode(_penneo.terminalEncode(str));
+  
+    return prefix + _penneo.browserEncode(str);
 }
 
 /**
@@ -53,3 +41,9 @@ function penneoLink(data, target) {
 
     target.href = createHref(data);
 }
+
+var link = document.getElementById('pl');
+
+// Example:
+// var data = {name: 'test'};
+// penneoLink(data, link);
