@@ -1,5 +1,5 @@
 let _penneo = {
-    stringify: (data) => {
+    stringify: data => {
         try {
             return JSON.stringify(data);
         } catch (e) {
@@ -7,11 +7,11 @@ let _penneo = {
             return false;
         }
     },
-  
-    browserEncode: (str) => {
-       return encodeURIComponent(str);
+
+    browserEncode: str => {
+        return encodeURIComponent(str);
     }
-}
+};
 
 /**
  * Returns a valid `href` to be set in an <a> tag programatically.
@@ -25,7 +25,7 @@ function createHref(data) {
     if (!str) {
         return false;
     }
-  
+
     return prefix + _penneo.browserEncode(str);
 }
 
@@ -45,7 +45,6 @@ function penneoLink(data, target) {
 export default {
     createLink: penneoLink
 };
-
 
 // Example:
 //
