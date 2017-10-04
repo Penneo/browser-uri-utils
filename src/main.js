@@ -43,7 +43,7 @@ function penneoLink(data, target) {
 }
 
 export default {
-    createLink: penneoLink
+    createLink: createHref
 };
 
 

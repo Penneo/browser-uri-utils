@@ -48,7 +48,7 @@ function penneoLink(data, target) {
 }
 
 exports.default = {
-    createLink: penneoLink
+    createLink: createHref
 };
 
 // Example:
