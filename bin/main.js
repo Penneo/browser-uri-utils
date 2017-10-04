@@ -1,5 +1,10 @@
-let _penneo = {
-    stringify: data => {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _penneo = {
+    stringify: function stringify(data) {
         try {
             return JSON.stringify(data);
         } catch (e) {
@@ -8,7 +13,7 @@ let _penneo = {
         }
     },
 
-    browserEncode: str => {
+    browserEncode: function browserEncode(str) {
         return encodeURIComponent(str);
     }
 };
@@ -19,8 +24,8 @@ let _penneo = {
  * @return {string}      href uri
  */
 function createHref(data) {
-    const prefix = 'penneo:browser,';
-    let str = _penneo.stringify(data);
+    var prefix = 'penneo:browser,';
+    var str = _penneo.stringify(data);
 
     if (!str) {
         return false;
@@ -42,7 +47,7 @@ function penneoLink(data, target) {
     target.href = createHref(data);
 }
 
-export default {
+exports.default = {
     createLink: penneoLink
 };
 
